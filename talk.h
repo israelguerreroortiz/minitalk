@@ -6,7 +6,7 @@
 /*   By: isrguerr <isrguerr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 17:25:15 by isrguerr          #+#    #+#             */
-/*   Updated: 2025/02/26 17:35:58 by isrguerr         ###   ########.fr       */
+/*   Updated: 2025/03/13 17:09:52 by isrguerr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,6 @@
 #include <signal.h>
 #include <stdlib.h>
 
-# endifa
+void	ft_putstr_fd(char *s, int fd);
+
+# endif
