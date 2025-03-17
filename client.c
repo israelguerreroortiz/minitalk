@@ -5,23 +5,40 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: isrguerr <isrguerr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/26 17:25:25 by isrguerr          #+#    #+#             */
-/*   Updated: 2025/03/13 17:20:32 by isrguerr         ###   ########.fr       */
+/*   Created: 2025/03/13 17:22:39 by isrguerr          #+#    #+#             */
+/*   Updated: 2025/03/17 18:15:20 by isrguerr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "talk.h"
-#include <sys/types.h>
+
+//Esta funcion manda cada bit de un string 
+void send_bit(pid_t server_pid, char c)
+{
+    for (int i = 7; i >= 0; i--)
+    {
+        if ((c >> i) & 1)
+            kill(server_pid, SIGUSR2);
+        else
+            kill(server_pid, SIGUSR1);
+        usleep(100); //funcion para después de cada iteracion, espere 100 microsegundos para que le de tiempo a procesar cada numero
+    }
+}
 
 int main(int argc, char **argv)
 {
-    pid_t  server_pid;
-    char   *message;
-    
     if (argc != 3)
     {
-        ft_putstr_fd("Use ./client, pid of server and a string\n", 1);
+        ft_putstr_fd("Put ./client, pid of server and a message\n", 1);
         return (1);
     }
-    return (0);
+    
+    pid_t server_pid = atoi(argv[1]);
+    char *message = argv[2];
+    
+    while (*message)
+        send_bit(server_pid, *message++);
+    send_bit(server_pid, '\0'); // Enviar terminador
+    
+    return 0;
 }
