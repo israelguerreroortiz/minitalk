@@ -6,22 +6,18 @@
 /*   By: isrguerr <isrguerr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/17 18:17:10 by isrguerr          #+#    #+#             */
-/*   Updated: 2025/03/17 18:17:44 by isrguerr         ###   ########.fr       */
+/*   Updated: 2025/03/18 18:40:25 by isrguerr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "talk.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_isdigit(int nbr)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i] != '\0')
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
+	if (nbr >= '0' && nbr <= '9')
+		return (1);
+	else
+		return (0);
 }
 
 int	ft_atoi(const char *str)
