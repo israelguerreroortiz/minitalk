@@ -6,7 +6,7 @@
 /*   By: isrguerr <isrguerr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:22:39 by isrguerr          #+#    #+#             */
-/*   Updated: 2025/03/18 18:41:23 by isrguerr         ###   ########.fr       */
+/*   Updated: 2025/03/19 19:03:20 by isrguerr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		ft_printf("Put ./client, pid of server and a message\n");
+		ft_printf("Put ./client, pid of server and a string\n");
 		return (1);
 	}
 	server_pid = ft_atoi(argv[1]);

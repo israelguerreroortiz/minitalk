@@ -6,7 +6,7 @@
 /*   By: isrguerr <isrguerr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 17:23:22 by isrguerr          #+#    #+#             */
-/*   Updated: 2025/03/18 18:40:16 by isrguerr         ###   ########.fr       */
+/*   Updated: 2025/03/19 19:01:54 by isrguerr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,14 @@ void	signal_handler(int sig)
 	}
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
+	if (argc != 1)
+	{
+		ft_printf("Only needs ./server\n");
+		return (1);
+	}
+	(void)argv;
 	ft_printf("Servidor en marcha. PID: %d\n", getpid());
 	signal(SIGUSR1, signal_handler);
 	signal(SIGUSR2, signal_handler);
